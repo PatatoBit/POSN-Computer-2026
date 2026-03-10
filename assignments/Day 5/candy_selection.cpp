@@ -13,7 +13,10 @@ vector<bool> stringToActivation(string s)
 int activationToValue(const vector<int> &prices, const vector<bool> &activation)
 {
 	if (prices.size() != activation.size())
+	{
 		cout << "Vector size mismatch" << endl;
+		return -1;
+	}
 
 	int sum = 0;
 	for (int i = 0; i < prices.size(); i++)
@@ -37,10 +40,16 @@ int main()
 	cin >> budget >> n;
 
 	vector<int> prices(n);
-	vector<bool>(n, 0);
 
 	for (int i = 0; i < n; i++)
+	{
 		cin >> prices[i];
+	}
+
+	cout << endl;
+
+	int closestMatch = 0;
+	vector<bool> minActivation;
 
 	for (int i = 0; i < pow(2, n); i++)
 	{
@@ -53,20 +62,31 @@ int main()
 			temp /= 2;
 		}
 
-		// printVector(stringToActivation(binary));
+		vector<bool> activationVector = stringToActivation(binary);
+		int matchedValue = activationToValue(prices, activationVector);
 
-		// Array matching
-		// ax + by + cz + ...
-		for (int j = 0; j < n; j++)
+		if (matchedValue >= closestMatch && matchedValue <= budget)
 		{
-			int matchedValue = activationToValue(prices, stringToActivation(binary));
-			if (matchedValue == budget)
-				cout << "Found match!" << endl;
+			closestMatch = matchedValue;
+			minActivation = activationVector;
+		}
 
-			cout << matchedValue << endl;
-			printVector(stringToActivation(binary));
+		if (matchedValue == budget)
+			break;
+	}
+
+	int count = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (minActivation[i])
+		{
+			cout << prices[i] << " ";
+			count++;
 		}
 	}
+
+	cout << endl;
+	cout << closestMatch << " " << count;
 
 	return 0;
 }
