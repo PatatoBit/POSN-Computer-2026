@@ -5,17 +5,16 @@ int main()
 {
 	// 1-based adjacency list for nodes 1..9.
 	vector<vector<int>> graph = {
-		{},
-		{2, 3, 5},
-		{4, 5},
-		{5, 6},
-		{7},
-		{6, 7, 9},
-		{8},
-		{9},
-		{7, 9},
-		{}
-	};
+			{},
+			{2, 3, 5},
+			{4, 5},
+			{5, 6},
+			{7},
+			{6, 7, 9},
+			{8},
+			{9},
+			{7, 9},
+			{}};
 
 	int n = 9;
 	vector<int> indegree(n + 1, 0);
@@ -56,11 +55,10 @@ int main()
 
 	if ((int)topo_order.size() != n)
 	{
-		cout << "Graph has a cycle, so topological sort is not possible.\n";
+		cout << "graph has a cycle";
 		return 0;
 	}
 
-	cout << "Topological order: ";
 	for (int node : topo_order)
 	{
 		cout << node << ' ';
