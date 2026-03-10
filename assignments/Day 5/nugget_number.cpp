@@ -22,16 +22,15 @@ bool isNugget(int n)
 
 int main()
 {
-	int arr[6];
-	for (int i = 0; i < 6; i++)
-	{
-		cin >> arr[i];
-	}
+	int n;
+	cin >> n;
 
-	for (int num : arr)
+	for (int i = 6; i <= n; i++)
 	{
-		if (isNugget(num))
-			cout << num << " ";
+		if (isNugget(i))
+		{
+			cout << i << " ";
+		}
 	}
 
 	return 0;
