@@ -14,21 +14,8 @@ void printVector(const vector<vector<int>> &v)
 	}
 }
 
-int main()
+int knapsack(int n, int W, vector<int> &values, vector<int> &weights)
 {
-	int W, n;
-	cin >> W >> n;
-
-	vector<int> values(n), weights(n);
-
-	cout << "Enter " << n << " values: ";
-	for (int i = 0; i < n; i++)
-		cin >> values[i];
-
-	cout << "Enter " << n << " weights: ";
-	for (int i = 0; i < n; i++)
-		cin >> weights[i];
-
 	vector<vector<int>> output(n + 1, vector<int>(W + 1, 0));
 
 	// For every item
@@ -44,7 +31,25 @@ int main()
 		}
 	}
 
-	printVector(output);
+	return output[n][W];
+}
+
+int main()
+{
+	int W, n;
+	cin >> W >> n;
+
+	vector<int> values(n), weights(n);
+
+	cout << "Enter " << n << " values: ";
+	for (int i = 0; i < n; i++)
+		cin >> values[i];
+
+	cout << "Enter " << n << " weights: ";
+	for (int i = 0; i < n; i++)
+		cin >> weights[i];
+
+	cout << knapsack(n, W, values, weights);
 
 	return 0;
 }
