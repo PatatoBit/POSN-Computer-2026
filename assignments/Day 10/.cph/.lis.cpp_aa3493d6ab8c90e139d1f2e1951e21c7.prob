@@ -1,0 +1,1 @@
+{"name":"Local: lis","url":"/Users/patato/Documents/Projects/POSN-Computer-2026/assignments/Day 10/lis.cpp","tests":[{"id":1773629467649,"input":"8\n10 9 2 5 3 7 101 18","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/patato/Documents/Projects/POSN-Computer-2026/assignments/Day 10/lis.cpp","group":"local","local":true}
