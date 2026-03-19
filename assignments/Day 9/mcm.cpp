@@ -14,6 +14,11 @@ string buildParenthesis(const vector<vector<int>> &split, int i, int j)
 	return "(" + buildParenthesis(split, i, k) + " x " + buildParenthesis(split, k + 1, j) + ")";
 }
 
+bool compareBySecond(const pair<int, int> &a, const pair<int, int> &b)
+{
+	return a.second < b.second;
+}
+
 int main()
 {
 	ios::sync_with_stdio(false);
